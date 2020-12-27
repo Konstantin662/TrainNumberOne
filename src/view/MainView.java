@@ -18,15 +18,16 @@ public class MainView {
     public void ShowView() throws IOException {
         boolean key = true;
         do {
+            System.out.println("Список команд для выполнения:");
             System.out.println("1.Создать грузовой поезд.");
             System.out.println("2.Создать пассажирский поезд.");
             System.out.println("3.Добавить локомотив в любой поезд.");
             System.out.println("4.Добавить грузовой вагон.");
             System.out.println("5.Добавить пассажирский вагон.");
             System.out.println("6.Информация о поезде.");
-            System.out.println("7.Информация о всех поездах.");
+            System.out.println("7.Информация о всех названиях поездов за время работы программы.");
             System.out.println("8.Завершить программу");
-            System.out.println("");
+            System.out.println("Введите команду:");
             String indication = reader.readLine();
             switch (indication) {
                 case "1":

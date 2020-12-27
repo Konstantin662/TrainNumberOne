@@ -1,6 +1,8 @@
 package view;
 
+import model.Locomotive;
 import model.PassengerWagonType;
+import model.Train;
 import model.TypeTrain;
 import service.TrainAssembly;
 
@@ -24,9 +26,19 @@ public class AddLocomotive {
             System.out.println("Введите номер локомотива и мощность через пробел:");
             String options = reader.readLine();
             int [] numberArray = Arrays.stream(options.split(" ")).mapToInt(Integer::parseInt).toArray();
-            trainAssembly.addNewLocomotive(trainAssembly.TrainStorage1.getTrain(wagonName),
+            addNewLocomotive(trainAssembly.TrainStorage1.getTrain(wagonName),
                     numberArray[0],numberArray[1]);
-            System.out.println("Локомотив добавлен.");
+        }
+    }
+    public void addNewLocomotive(Train railwayTrain,int numLocomotive,int powerLocomotive) {
+        if(railwayTrain.getSumLocomotives().size() < 3) {
+            Locomotive locomotive = new Locomotive(numLocomotive, powerLocomotive);
+            railwayTrain.getSumLocomotives().add(locomotive);
+            System.out.println("Локомотив добавлен!");
+        }
+        else {
+            System.out.println("В данном поезде достигнуто максимальное количество локомотивов!");
+            System.out.println("");
         }
     }
 }

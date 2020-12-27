@@ -7,4 +7,9 @@ public class FreightWagon extends Wagon {
         super(numOfWagon,powerOfWagon);
         this.FreightWagonType = FreightWagonType;
     }
+
+    public String toString() {
+        return "FreightWagon:(type = " + FreightWagonType
+                + ",number = " + getNumOfWagon() + ",power = " + getPowerOfWagon() + ")";
+    }
 }

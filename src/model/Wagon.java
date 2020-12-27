@@ -23,4 +23,8 @@ public class Wagon {
     public void setPowerOfWagon(int powerOfWagon) {
         this.powerOfWagon = powerOfWagon;
     }
+
+    public String toString(){
+        return "Wagon:(number = " + numOfWagon + ",power = " + powerOfWagon + ")";
+    }
 }

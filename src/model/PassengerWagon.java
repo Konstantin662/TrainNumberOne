@@ -7,4 +7,8 @@ public class PassengerWagon extends Wagon {
         super(numOfWagon,powerOfWagon);
         this.passengerWagonType = passengerWagonType;
     }
+    public String toString() {
+        return "PassengerWagon:(type = " + passengerWagonType
+                + ",number = " + getNumOfWagon() + ",power = " + getPowerOfWagon() + ")";
+    }
 }

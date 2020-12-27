@@ -39,4 +39,9 @@ public class Train {
     public void setSumWagons(List<Wagon> sumWagons) {
         this.sumWagons = sumWagons;
     }
+
+    public String toString(){
+        return "name = '" + name + "',\nlocomotives = "
+                + sumLocomotives + ",\nwagons = " + sumWagons + ",\ntypeTrain = " + typeTrain + ".";
+    }
 }

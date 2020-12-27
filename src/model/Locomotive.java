@@ -5,7 +5,7 @@ public class Locomotive {
     private long numLocomotive;
 
 
-    public Locomotive (int powerLocomotive,long numLocomotive){
+    public Locomotive (long numLocomotive,int powerLocomotive){
         this.numLocomotive = numLocomotive;
         this.powerLocomotive = powerLocomotive;
     }
@@ -18,5 +18,10 @@ public class Locomotive {
     }
     public long getNumLocomotive() {
         return numLocomotive;
+    }
+
+    public String toString(){
+        return "Locomotive:(numberLoc = " + numLocomotive
+                + ",powerLoc = " + powerLocomotive + ")";
     }
 }

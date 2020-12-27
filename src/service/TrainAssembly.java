@@ -13,8 +13,8 @@ public class TrainAssembly {
 
         List<Wagon> PassengerOfWagon = new ArrayList<>();
 
-        Train PassengerTrain = new Train(name,PassengerLocomotive,PassengerOfWagon,TypeTrain.PASSENGER);
-        TrainStorage1.AddTrain(name,PassengerTrain);
+        Train PassengerTrain = new Train(name, PassengerLocomotive, PassengerOfWagon, TypeTrain.PASSENGER);
+        TrainStorage1.AddTrain(name, PassengerTrain);
         return PassengerTrain;
     }
 
@@ -23,25 +23,27 @@ public class TrainAssembly {
 
         List<Wagon> FreightOfWagon = new ArrayList<>();
 
-        Train FreightTrain = new Train(name,FreightLocomotive,FreightOfWagon,TypeTrain.FREIGHT);
-        TrainStorage1.AddTrain(name,FreightTrain);
+        Train FreightTrain = new Train(name, FreightLocomotive, FreightOfWagon, TypeTrain.FREIGHT);
+        TrainStorage1.AddTrain(name, FreightTrain);
         return FreightTrain;
     }
 
-    public void addNewPassengerWagon(Train passengerTrain,PassengerWagonType passengerWagonType,int numOfWagon,int powerOfWagon){
-        PassengerWagon passengerWagon = new PassengerWagon(numOfWagon,powerOfWagon,passengerWagonType);
-        passengerTrain.getSumWagons().add(passengerWagon);
-    }
+    public boolean sumPower(Train railwayTrain) {
+        int powerSumLocomotive = 0;
+        for (int i = 0; i < railwayTrain.getSumLocomotives().size(); i++) {
+            powerSumLocomotive += railwayTrain.getSumLocomotives().get(i).getPowerLocomotive();
+        }
+        int powerSumWagon = 0;
+        for (int j = 0; j < railwayTrain.getSumWagons().size(); j++) {
+            powerSumWagon += railwayTrain.getSumWagons().get(j).getPowerOfWagon();
+        }
 
-    public void addNewFreightWagon(Train freightTrain,FreightWagonType freightWagonType,int numOfWagon,int powerOfWagon){
-        FreightWagon freightWagon = new FreightWagon(numOfWagon,powerOfWagon,freightWagonType);
-        freightTrain.getSumWagons().add(freightWagon);
+        if (powerSumLocomotive >= powerSumWagon) {
+            return true;
+        } else {
+            return false;
+        }
     }
-
-    public void addNewLocomotive(Train railwayTrain,int numLocomotive,int powerLocomotive) {
-        Locomotive locomotive = new Locomotive(numLocomotive, powerLocomotive);
-        railwayTrain.getSumLocomotives().add(locomotive);
-    }
-
 }
+
 

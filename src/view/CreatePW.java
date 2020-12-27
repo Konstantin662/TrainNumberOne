@@ -19,7 +19,7 @@ public class CreatePW {
         String name = reader.readLine();
         if (!trainAssembly.TrainStorage1.containsKey(name)){
             trainAssembly.createPassengerTrain(name);
-            System.out.print("Поезд создан!");
+            System.out.println("Поезд создан!");
         } else {
             System.out.println("Невозможно сделать поезд,так как поезд с таким названием уже существует.");
             System.out.println("");
