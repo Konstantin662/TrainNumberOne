@@ -2,8 +2,8 @@ package view;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
+import model.TypeTrain;
 import service.TrainAssembly;
 
 public class MainView {
@@ -15,7 +15,7 @@ public class MainView {
         this.reader = reader;
     }
 
-    public void ShowView() throws IOException {
+    public void showView() throws IOException {
         boolean key = true;
         do {
             System.out.println("Список команд для выполнения:");
@@ -31,24 +31,24 @@ public class MainView {
             String indication = reader.readLine();
             switch (indication) {
                 case "1":
-                    CreateFW createFW = new CreateFW(trainAssembly);
-                    createFW.CreateFW1();
+                    CreateTrain createFreightTrain = new CreateTrain(trainAssembly);
+                    createFreightTrain.createTrain1(TypeTrain.FREIGHT);
                     break;
                 case "2":
-                    CreatePW createPW = new CreatePW(trainAssembly);
-                    createPW.CreatePW1();
+                    CreateTrain createPassengerTrain = new CreateTrain(trainAssembly);
+                    createPassengerTrain.createTrain1(TypeTrain.PASSENGER);
                     break;
                 case "3":
                     AddLocomotive addLocomotive = new AddLocomotive(trainAssembly);
-                    addLocomotive.AddLocomotive1();
+                    addLocomotive.addLocomotive1();
                     break;
                 case "4":
                     AddFreightWagon addFreightWagon = new AddFreightWagon(trainAssembly);
-                    addFreightWagon.AddFreightWagon1();
+                    addFreightWagon.addFreightWagon1();
                     break;
                 case "5":
                     AddPassengerWagon addPassengerWagon = new AddPassengerWagon(trainAssembly);
-                    addPassengerWagon.AddPassengerWagon1();
+                    addPassengerWagon.addPassengerWagon1();
                     break;
                 case "6":
                     InfoTrain infoTrain = new InfoTrain(trainAssembly);

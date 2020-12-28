@@ -19,17 +19,8 @@ public class AddFreightWagon {
         this.trainAssembly = trainAssembly;
     }
 
-    public void addNewFreightWagon(Train freightTrain, FreightWagonType freightWagonType, int numOfWagon, int powerOfWagon){
-        FreightWagon freightWagon = new FreightWagon(numOfWagon, powerOfWagon, freightWagonType);
-        freightTrain.getSumWagons().add(freightWagon);
-        if(!trainAssembly.sumPower(freightTrain)) {
-            System.out.println("Присоединение невозможно!Слишком большая мощность вагона!");
-            freightTrain.getSumWagons().remove(freightTrain.getSumWagons().size() - 1);
-        } else{
-            System.out.println("Вагон успешно добавлен!");
-        }
-    }
-    public void AddFreightWagon1()throws IOException {
+
+    public void addFreightWagon1()throws IOException {
         System.out.println("Введите имя грузового поезда,к которому хотите добавить вагон: ");
         String wagonName = reader.readLine();
         if(trainAssembly.TrainStorage1.containsKey(wagonName)
@@ -40,34 +31,25 @@ public class AddFreightWagon {
             System.out.println("3.Платформа.");
             System.out.println("4.Крытый вагон.");
             String number = reader.readLine();
+            System.out.println("Введите номер вагона и мощность через пробел:");
+            String options = reader.readLine();
+            int [] numberArray = Arrays.stream(options.split(" ")).mapToInt(Integer::parseInt).toArray();
             switch (number){
                 case "1":
-                    System.out.println("Введите номер вагона и мощность через пробел:");
-                    String options = reader.readLine();
-                    int [] numberArray = Arrays.stream(options.split(" ")).mapToInt(Integer::parseInt).toArray();
-                    addNewFreightWagon(trainAssembly.TrainStorage1.getTrain(wagonName),
+                    trainAssembly.addNewFreightWagon(trainAssembly.TrainStorage1.getTrain(wagonName),
                             FreightWagonType.CISTERN,numberArray[0],numberArray[1]);
                     break;
                 case "2":
-                    System.out.println("Введите номер вагона и мощность через пробел:");
-                    String options1 = reader.readLine();
-                    int [] numberArray1 = Arrays.stream(options1.split(" ")).mapToInt(Integer::parseInt).toArray();
-                    addNewFreightWagon(trainAssembly.TrainStorage1.getTrain(wagonName),
-                            FreightWagonType.OPENWAGON,numberArray1[0],numberArray1[1]);
+                    trainAssembly.addNewFreightWagon(trainAssembly.TrainStorage1.getTrain(wagonName),
+                            FreightWagonType.OPENWAGON,numberArray[0],numberArray[1]);
                     break;
                 case "3":
-                    System.out.println("Введите номер вагона и мощность через пробел:");
-                    String options2 = reader.readLine();
-                    int [] numberArray2 = Arrays.stream(options2.split(" ")).mapToInt(Integer::parseInt).toArray();
-                    addNewFreightWagon(trainAssembly.TrainStorage1.getTrain(wagonName),
-                            FreightWagonType.PLATFORM,numberArray2[0],numberArray2[1]);
+                    trainAssembly.addNewFreightWagon(trainAssembly.TrainStorage1.getTrain(wagonName),
+                            FreightWagonType.PLATFORM,numberArray[0],numberArray[1]);
                     break;
                 case "4":
-                    System.out.println("Введите номер вагона и мощность через пробел:");
-                    String options3 = reader.readLine();
-                    int [] numberArray3 = Arrays.stream(options3.split(" ")).mapToInt(Integer::parseInt).toArray();
-                    addNewFreightWagon(trainAssembly.TrainStorage1.getTrain(wagonName),
-                            FreightWagonType.COVEREDWAGON,numberArray3[0],numberArray3[1]);
+                    trainAssembly.addNewFreightWagon(trainAssembly.TrainStorage1.getTrain(wagonName),
+                            FreightWagonType.COVEREDWAGON,numberArray[0],numberArray[1]);
                     break;
                 default:
                     System.out.println("Данные введены некорректно.");

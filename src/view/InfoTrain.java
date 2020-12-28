@@ -14,7 +14,7 @@ public class InfoTrain {
         this.trainAssembly = trainAssembly;
     }
 
-    public void getInfoTrain() throws IOException {// МОЖЕТ СЛОМАТЬ ПРОГРАММУ!
+    public void getInfoTrain() throws IOException {
         System.out.println("Введите название поезда:");
         String str = reader.readLine();
         if(trainAssembly.TrainStorage1.containsKey(str)){

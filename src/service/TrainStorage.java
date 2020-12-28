@@ -9,7 +9,7 @@ import java.util.Set;
 public class TrainStorage {
     private Map<String, Train> TrainStorage = new HashMap();
 
-    public void AddTrain(String name,Train train){
+    public void addTrain(String name,Train train){
         if (!this.TrainStorage.containsKey(name) || !this.TrainStorage.containsValue(train)){
             this.TrainStorage.put(name,train);
         }

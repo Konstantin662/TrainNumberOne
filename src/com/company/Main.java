@@ -12,6 +12,6 @@ public class Main {
 	TrainAssembly trainAssembly = new TrainAssembly();
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     MainView mainView = new MainView(trainAssembly,reader);
-    mainView.ShowView();
+    mainView.showView();
     }
 }
